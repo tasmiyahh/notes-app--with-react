@@ -1,0 +1,37 @@
+.note{
+    padding: 25px;
+    height: 200px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    background-color: blueviolet;
+    border-radius: 30px;
+}
+
+.note-text{
+    flex: 1;
+    background-color: transparent;
+    font-size: 1rem;
+    line-height: 1.875rem;
+    resize: none;
+    outline: none;
+    border: none;
+}
+
+.note-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.note-footer img{
+    width :20px;
+    cursor: pointer;
+    opacity: 0;
+    transition: 300ms;
+}
+
+.note:hover .note-footer img{
+    opacity: 1;
+}
+
