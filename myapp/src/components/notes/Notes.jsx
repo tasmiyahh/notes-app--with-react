@@ -4,7 +4,7 @@ import "./notes.css";
 
 let timer = 500,timeout
 function Notes(props) {
-   const formateDate =(value)=>{
+   const formateDate =(value)=>{ //this value rep props.note.time
     const date = new Date(value)
     
     const monthNames =[
@@ -28,12 +28,13 @@ function Notes(props) {
   
   }
   const debounce =(func)=>{  //ye isliye lgaya tak notes kb update ho seeffect chle pe ye bta sky useeffect ko state kb update ho noteska text update hoe pe
-   clearTimeout(timeout)
-   timeout=setTimeout(func , timer)
+  let timeout;
+    clearTimeout(timeout) //it clear timer set in settime out
+  timeout=setTimeout(func , 500)//it cals func after no of miliseconds
   }
 
   const updateText = (text,id)=>{
-    debounce(()=>props.updateText(text,id))
+    debounce(()=>props.updateText(text,id)) //ye parameter neechy onchange waly se mily h
   }
   return (
     <div className='note' style={{backgroundColor: props.note.color}}>
@@ -41,7 +42,8 @@ function Notes(props) {
         (events)=>updateText(events.target.value,props.note.id)}></textarea>
      <div className="note-footer">
      <p>{formateDate(props.note.time)}</p>
-     <img src={deleteicon} alt="" onClick={()=>props.deleteNote(props.note.id)} />
+     {/* //arrow func isliye dety h t k click pe ho wrna code run pe he func cal hojaye ga */}
+     <img src={deleteicon} alt="" onClick={()=>props.deleteNote(props.note.id)} /> 
      </div>
     </div>
 

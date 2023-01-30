@@ -15,13 +15,13 @@ function Notecontainer(props) {
    return array
   }
 
-  const notes =reversearray(props.notes) //props.notes ko reverse array medaal k storekrdiya notes var me
+  const notes =reversearray(props.notes) //props.notes ko reverse array func medaal k storekrdiya notes var me
     return (
         <div className='note-container'>
             <h2>Notes</h2>
             <div className="note-container-notes custom-scroll">
             {
-              notes?.length>0 ?  //jb kch na ho tw oskliye
+              (notes?.length>0)?  //jb kch na ho tw oskliye
                 notes.map((item,index)=><Notes 
                 key = {item.id} note={item} //agr index dety h tw new nots mepurana text ata unique kliye id d
                 deleteNote ={props.deleteNote}
